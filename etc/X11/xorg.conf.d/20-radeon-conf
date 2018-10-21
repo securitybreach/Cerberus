@@ -1,0 +1,12 @@
+Section "Device"
+	Identifier "Device0"
+	Driver "radeon"
+	BusID "PCI:01:00.0"
+EndSection
+
+Section "Device"
+	Identifier "Device1"
+	Driver "radeon"
+	BusID "PCI:02:00.0"
+
+Option "AccelMethod" "EXA"

@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+
+pl="/var/cache/etckeeper/packagelist"
+
+if etckeeper unclean; then
+	message="committing changes in /etc after $HIGHLEVEL_PACKAGE_MANAGER run"
+
+	set +e
+	if [ -e $pl.pre-install ] && [ "$(cat $pl.fmt 2>/dev/null || true)" = "$(etckeeper list-installed fmt)" ]; then
+		(
+			echo "$message"
+			echo
+			echo "Package changes:"
+			etckeeper list-installed | diff -U0 $pl.pre-install - | tail -n+4 | egrep '^[-+]' || true
+		) | etckeeper commit --stdin
+	else
+		etckeeper commit "$(printf "$message")"
+	fi
+	status=$?
+	set -e
+
+	if [ "$status" != 0 ]; then
+		echo "warning: etckeeper failed to commit changes in /etc using $VCS" >&2
+	fi
+fi
+	
+rm -f $pl.pre-install $pl.fmt

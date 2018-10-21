@@ -1,0 +1,8 @@
+#!/bin/bash
+# Filename: ~/.xmonad/conkyscript
+conky -c ~/.conkyclirc -i1 -q > conkystat &
+sleep 2
+killall -q conky
+cat conkystat
+rm conkystat
+

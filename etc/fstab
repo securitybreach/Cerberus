@@ -1,0 +1,7 @@
+/dev/sdb1               /boot           ext4         noatime,discard 0       2
+/dev/mapper/root        /               ext4         noatime,discard 0       1
+UUID=cb0d6b0f-1c2a-46c8-99eb-bbe4e1bcb1b5	/MEDIA    ext4	noatime,discard 0 1
+UUID=3067b591-934e-4c73-a4a7-e5d9da6c267a	/Backup1  ext4	noatime,discard 0 1
+UUID=02fcad08-2db1-4467-b2ee-f9cbbfc229d1	/Backup2  ext4	noatime,discard 0 1
+/dev/sde3					/old-home ext4  noatime,discard 0 1
+UUID=392461ea-ed96-42a1-b398-9ca1ce5044c1 	/Various  ext4 	noatime,discard 0 1	

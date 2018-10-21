@@ -1,0 +1,6 @@
+qemu-img create -f qcow2 disk.img 5G
+qemu-kvm -hda win2k.img -cdrom win2k.iso -m 2000 -boot d
+qemu-kvm -hda win2k.img
+
+qemu-kvm -hda $1 -net nic,model=virtio -net user,hostfwd=tcp:127.0.0.1:15000-:22 -vga vmware -usbdevice tablet -device intel-hda -device hda-duplex -m 4000
+

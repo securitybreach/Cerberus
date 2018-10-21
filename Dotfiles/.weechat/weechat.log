@@ -1,0 +1,21 @@
+[2011-07-11 19:54:55] weechat 0.3.5 (compiled on May 25 2011 17:58:29)
+[2011-07-11 19:54:55] Reading configuration file weechat.conf
+[2011-07-11 19:54:55] Reading configuration file plugins.conf
+[2011-07-11 19:54:55] Reading configuration file irc.conf
+[2011-07-11 19:54:55] Reading configuration file xfer.conf
+[2011-07-11 19:54:55] Reading configuration file logger.conf
+[2011-07-11 19:54:55] Reading configuration file rmodifier.conf
+[2011-07-11 19:54:55] Reading configuration file relay.conf
+[2011-07-11 19:54:55] Reading configuration file charset.conf
+[2011-07-11 19:54:55] Reading configuration file alias.conf
+[2011-07-11 19:54:55] Reading configuration file aspell.conf
+[2011-07-11 19:55:14] Writing configuration file plugins.conf 
+[2011-07-11 19:55:14] Writing configuration file aspell.conf 
+[2011-07-11 19:55:14] Writing configuration file alias.conf 
+[2011-07-11 19:55:14] Writing configuration file charset.conf 
+[2011-07-11 19:55:14] Writing configuration file relay.conf 
+[2011-07-11 19:55:14] Writing configuration file rmodifier.conf 
+[2011-07-11 19:55:14] Writing configuration file logger.conf 
+[2011-07-11 19:55:14] Writing configuration file xfer.conf 
+[2011-07-11 19:55:14] Writing configuration file irc.conf 
+[2011-07-11 19:55:14] Writing configuration file weechat.conf 

@@ -1,0 +1,10 @@
+# Copyright (c) 2006-2012 Jeremy Stanley <fungi@yuggoth.org>. Permission to
+# use, copy, modify, and distribute this software is granted under terms
+# provided in the LICENSE file distributed with this software.
+
+# NOTE: Predefined IATA/FAA airport codes are now in the airports file.
+
+[default]
+description = default settings
+#cachedir = ~/.weather
+#setpath = .:~/.weather:/var/lib/weather-util:/usr/share/weather-util

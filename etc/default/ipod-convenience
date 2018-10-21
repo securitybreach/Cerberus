@@ -1,0 +1,11 @@
+# iPod Convenience Settings
+
+#This is the area that you will be using 
+#To mount your iPod or iPhone at
+MOUNTPOINT=/media/ipod
+
+#This is the ip address that your iPod or
+#iPhone has on your network.  It is highly
+#recommended that you use DNS or a static
+#address
+IPADDRESS=ipod

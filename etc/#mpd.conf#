@@ -1,0 +1,21 @@
+ music_directory "/home/comhack/Music"
+ playlist_directory "/home/comhack/.mpd/playlists"
+ db_file      "/home/comhack/.mpd/mpd.db"
+ log_file      "/home/comhack/.mpd/mpd.log"
+ pid_file      "/home/comhack/.mpd/mpd.pid"
+ state_file     "/home/comhack/.mpd/mpdstate"
+audio_output {
+        type            "alsa"
+        name            "My Sound Card"
+        mixer_type      "software"      # optional
+}
+
+audio_output {
+    type                    "fifo"
+    name                    "my_fifo"
+    path                    "/tmp/mpd.fifo"
+    format                  "44100:16:2"
+}
+
+
+

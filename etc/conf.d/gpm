@@ -1,0 +1,1 @@
+GPM_ARGS="-m /dev/input/mice -t imps2"

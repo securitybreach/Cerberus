@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="schemas">
+		<dir name="apps">
+			<dir name="gconf-editor">
+				<entry name="bookmarks" mtime="1497316793" type="schema" stype="list" owner="gconf-editor" gettext_domain="gconf-editor" list_type="string">
+					<local_schema locale="C" short_desc="Bookmarks">
+						<default type="list" ltype="string">
+						</default>
+						<longdesc>gconf-editor folder bookmarks</longdesc>
+					</local_schema>
+				</entry>
+			</dir>
+		</dir>
+	</dir>
+	<dir name="apps">
+		<dir name="gconf-editor">
+			<entry name="bookmarks" mtime="1497316793" schema="/schemas/apps/gconf-editor/bookmarks"/>
+		</dir>
+	</dir>
+</gconf>

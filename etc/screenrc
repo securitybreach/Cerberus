@@ -1,0 +1,28 @@
+screen    -t Archberry 0 ssh -p xxxx xxxxxxx@xxx.xxx.x.x
+screen    -t darkStar 1 ssh -p 6666 comhack@69.164.210.120 
+screen    -t shell    2 
+screen    -t          3 
+screen    -t mpd      4 ncmpcpp
+screen    -t glances  5 glances
+screen    -t mc       6 mc -S nicedark
+screen    -t pandora  7 
+screen	  -t nmon     8 nmon cmduan
+screen	  -t shell    9
+screen	  -t shell    10
+screen    -t shell    11
+screen    -t shell    12
+screen    -t shell    13
+select 0
+
+altscreen on
+term screen-256color
+bindkey -k k7 next # F9
+bindkey -k k9 prev # F8
+
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+startup_message off
+

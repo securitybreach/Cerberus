@@ -1,0 +1,4 @@
+/topic #channel topic
+/mode <#channel> +vv <nickname> <nickname>
+esc + = to toggle seeing voice
+

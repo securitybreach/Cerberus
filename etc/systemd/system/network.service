@@ -1,0 +1,18 @@
+[Unit]
+Description=Wired Static IP Connectivity
+Wants=network.target
+Before=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/conf.d/network
+ExecStart=/sbin/ip link set dev enp4s0 up
+ExecStart=/sbin/ip addr add 192.168.1.2/24 broadcast 192.168.1.255 dev enp4s0
+ExecStart=/sbin/ip route add default via 192.168.1.1
+
+ExecStop=/sbin/ip addr flush dev enp4s0
+ExecStop=/sbin/ip link set dev enp4s0 down
+
+[Install]
+WantedBy=multi-user.target

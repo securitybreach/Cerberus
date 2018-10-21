@@ -1,0 +1,145 @@
+Section "ServerLayout"
+	Identifier     "aticonfig Layout"
+	Screen      0  "aticonfig-Screen[0]-0" 0 0
+	Screen         "aticonfig-Screen[0]-1" RightOf "aticonfig-Screen[0]-0"
+	Screen         "amdcccle-Screen[1]-2" RightOf "aticonfig-Screen[0]-1"
+	Screen         "amdcccle-Screen[1]-3" RightOf "amdcccle-Screen[1]-2"
+EndSection
+
+Section "Module"
+EndSection
+
+Section "Monitor"
+	Identifier   "aticonfig-Monitor[0]-0"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+EndSection
+
+Section "Monitor"
+	Identifier   "0-DFP1"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+	Option	    "TargetRefresh" "60"
+	Option	    "Position" "0 0"
+	Option	    "Rotate" "normal"
+	Option	    "Disable" "true"
+EndSection
+
+Section "Monitor"
+	Identifier   "0-DFP5"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+	Option	    "TargetRefresh" "60"
+	Option	    "Position" "0 0"
+	Option	    "Rotate" "normal"
+	Option	    "Disable" "true"
+EndSection
+
+Section "Monitor"
+	Identifier   "0-DFP9"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+	Option	    "PreferredMode" "1920x1080"
+	Option	    "TargetRefresh" "60"
+	Option	    "Position" "0 0"
+	Option	    "Rotate" "normal"
+	Option	    "Disable" "false"
+EndSection
+
+Section "Monitor"
+	Identifier   "0-DFP10"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+	Option	    "TargetRefresh" "60"
+	Option	    "Position" "3520 0"
+	Option	    "Rotate" "normal"
+	Option	    "Disable" "true"
+EndSection
+
+Section "Monitor"
+	Identifier   "aticonfig-Monitor[0]-1"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+EndSection
+
+Section "Device"
+	Identifier  "aticonfig-Device[0]-0"
+	Driver      "fglrx"
+	Option	    "Monitor-DFP1" "0-DFP1"
+	Option	    "Monitor-DFP5" "0-DFP5"
+	Option	    "Monitor-DFP9" "0-DFP9"
+	Option	    "Monitor-DFP10" "0-DFP10"
+	BusID       "PCI:1:0:0"
+EndSection
+
+Section "Device"
+	Identifier  "aticonfig-Device[0]-1"
+	Driver      "fglrx"
+	Option	    "Monitor-DFP1" "0-DFP1"
+	BusID       "PCI:1:0:0"
+	Screen      1
+EndSection
+
+Section "Device"
+	Identifier  "amdcccle-Device[1]-2"
+	Driver      "fglrx"
+	Option	    "Monitor-DFP5" "0-DFP5"
+	BusID       "PCI:1:0:0"
+	Screen      2
+EndSection
+
+Section "Device"
+	Identifier  "amdcccle-Device[1]-3"
+	Driver      "fglrx"
+	Option	    "Monitor-DFP10" "0-DFP10"
+	BusID       "PCI:1:0:0"
+	Screen      3
+EndSection
+
+Section "Screen"
+	Identifier "aticonfig-Screen[0]-0"
+	Device     "aticonfig-Device[0]-0"
+	DefaultDepth     24
+	SubSection "Display"
+		Viewport   0 0
+		Virtual   5120 2173
+		Depth     24
+	EndSubSection
+EndSection
+
+Section "Screen"
+	Identifier "aticonfig-Screen[0]-1"
+	Device     "aticonfig-Device[0]-1"
+	DefaultDepth     24
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+
+Section "Screen"
+	Identifier "amdcccle-Screen[1]-2"
+	Device     "amdcccle-Device[1]-2"
+	DefaultDepth     24
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+
+Section "Screen"
+	Identifier "amdcccle-Screen[1]-3"
+	Device     "amdcccle-Device[1]-3"
+	DefaultDepth     24
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+

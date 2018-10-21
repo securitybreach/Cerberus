@@ -1,0 +1,56 @@
+#Acer
+SUBSYSTEM==usb, SYSFS{idVendor}==0502, MODE=0664, GROUP=plugdev
+#ASUS
+SUBSYSTEM==usb, SYSFS{idVendor}==0b05, MODE=0664, GROUP=plugdev
+#Dell
+SUBSYSTEM==usb, SYSFS{idVendor}==413c, MODE=0664, GROUP=plugdev
+#Foxconn
+SUBSYSTEM==usb, SYSFS{idVendor}==0489, MODE=0664, GROUP=plugdev
+#Garmin-Asus
+SUBSYSTEM==usb, SYSFS{idVendor}==091e, MODE=0664, GROUP=plugdev
+#Google
+SUBSYSTEM==usb, SYSFS{idVendor}==18d1, MODE=0664, GROUP=plugdev
+#HTC
+SUBSYSTEM==usb, SYSFS{idVendor}==0bb4, MODE=0664, GROUP=plugdev
+#Huawei
+SUBSYSTEM==usb, SYSFS{idVendor}==12d1, MODE=0664, GROUP=plugdev
+#K-Touch
+SUBSYSTEM==usb, SYSFS{idVendor}==24e3, MODE=0664, GROUP=plugdev
+#KT Tech
+SUBSYSTEM==usb, SYSFS{idVendor}==2116, MODE=0664, GROUP=plugdev
+#Kyocera
+SUBSYSTEM==usb, SYSFS{idVendor}==0482, MODE=0664, GROUP=plugdev
+#Lenevo
+SUBSYSTEM==usb, SYSFS{idVendor}==17ef, MODE=0664, GROUP=plugdev
+#LG
+SUBSYSTEM==usb, SYSFS{idVendor}==1004, MODE=0664, GROUP=plugdev
+#Motorola
+SUBSYSTEM==usb, SYSFS{idVendor}==22b8, MODE=0664, GROUP=plugdev
+#NEC
+SUBSYSTEM==usb, SYSFS{idVendor}==0409, MODE=0664, GROUP=plugdev
+#Nook
+SUBSYSTEM==usb, SYSFS{idVendor}==2080, MODE=0664, GROUP=plugdev
+#Nvidia
+SUBSYSTEM==usb, SYSFS{idVendor}==0955, MODE=0664, GROUP=plugdev
+#OTGV
+SUBSYSTEM==usb, SYSFS{idVendor}==2257, MODE=0664, GROUP=plugdev
+#Pantech
+SUBSYSTEM==usb, SYSFS{idVendor}==10a9, MODE=0664, GROUP=plugdev
+#Philips
+SUBSYSTEM==usb, SYSFS{idVendor}==0471, MODE=0664, GROUP=plugdev
+#PMC-Sierra
+SUBSYSTEM==usb, SYSFS{idVendor}==04da, MODE=0664, GROUP=plugdev
+#Qualcomm
+SUBSYSTEM==usb, SYSFS{idVendor}==05c6, MODE=0664, GROUP=plugdev
+#SK Telesys
+SUBSYSTEM==usb, SYSFS{idVendor}==1f53, MODE=0664, GROUP=plugdev
+#Samsung
+SUBSYSTEM==usb, SYSFS{idVendor}==04e8, MODE=0664, GROUP=plugdev
+#Sharp
+SUBSYSTEM==usb, SYSFS{idVendor}==04dd, MODE=0664, GROUP=plugdev
+#Sony Ericsson
+SUBSYSTEM==usb, SYSFS{idVendor}==0fce, MODE=0664, GROUP=plugdev
+#Toshiba
+SUBSYSTEM==usb, SYSFS{idVendor}==0930, MODE=0664, GROUP=plugdev
+#ZTE
+SUBSYSTEM==usb, SYSFS{idVendor}==19d2, MODE=0664, GROUP=plugdev

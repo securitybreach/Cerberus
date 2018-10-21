@@ -1,0 +1,207 @@
+01/26/2013 11:45:22 PM - i3 4.4 (2012-12-12, branch "tags/4.4") starting
+01/26/2013 11:45:22 PM - Parsing configfile /home/comhack/.i3/config
+deciding for version 4 due to this line: # i3 config file (v4)
+01/26/2013 11:45:22 PM - [libi3] libi3/font.c Using X font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+01/26/2013 11:45:22 PM - Used number 1 for workspace with name 1
+01/26/2013 11:45:22 PM - Starting bar process: i3bar --bar_id=bar-jqafgp --socket="/run/user/1000/i3/ipc-socket.729"
+01/26/2013 11:45:22 PM - executing: i3bar --bar_id=bar-jqafgp --socket="/run/user/1000/i3/ipc-socket.729"
+01/26/2013 11:45:22 PM - IPC: looking for config for bar ID "bar-jqafgp"
+01/26/2013 11:45:22 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+i3status: trying to auto-detect output_format setting
+i3status: auto-detected "i3bar"
+01/26/2013 11:45:23 PM - Used number 2 for workspace with name 2
+01/26/2013 11:45:23 PM - Used number 3 for workspace with name 3
+01/26/2013 11:45:23 PM - Used number 4 for workspace with name 4
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:23 PM - focused now = 0x2092cb0 / 1
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:23 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:26 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:26 PM - focused now = 0x2099030 / 2
+01/26/2013 11:45:26 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:26 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:26 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:26 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:26 PM - ClientMessage for window 0x01000003
+01/26/2013 11:45:26 PM - ClientMessage for window 0x01000003
+01/26/2013 11:45:26 PM - WM_CLASS changed to panel (instance), trayer (class)
+01/26/2013 11:45:26 PM - WM_NAME changed to "panel"
+01/26/2013 11:45:26 PM - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+01/26/2013 11:45:26 PM - _NET_WM_NAME changed to "panel"
+01/26/2013 11:45:26 PM - WM_HINTS.input changed to "0"
+01/26/2013 11:45:26 PM - This window is of type dock
+01/26/2013 11:45:26 PM - Checking window 0x01000003 (class trayer)
+01/26/2013 11:45:26 PM - dock status matches
+01/26/2013 11:45:26 PM - ClientMessage for window 0x01000003
+01/26/2013 11:45:26 PM - ClientMessage for window 0x01000003
+01/26/2013 11:45:26 PM - ClientMessage for window 0x01000003
+01/26/2013 11:45:26 PM - ClientMessage for window 0x01000003
+01/26/2013 11:45:26 PM - ClientMessage for window 0x01000003
+01/26/2013 11:45:26 PM - ClientMessage for window 0x0000017a
+01/26/2013 11:45:28 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:28 PM - focused now = 0x2092cb0 / 1
+01/26/2013 11:45:28 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:28 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:28 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:28 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:29 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:29 PM - focused now = 0x2099030 / 2
+01/26/2013 11:45:29 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:29 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:29 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:29 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:30 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:30 PM - focused now = 0x2092cb0 / 1
+01/26/2013 11:45:30 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:30 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:30 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:30 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:32 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:32 PM - focused now = 0x2099030 / 2
+01/26/2013 11:45:32 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:32 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:32 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:32 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:34 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:34 PM - focused now = 0x2092cb0 / 1
+01/26/2013 11:45:34 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:34 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:34 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:34 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:35 PM - focused now = 0x2099280 / 3
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:35 PM - focused now = 0x2092cb0 / 1
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x20994b0, ws = 0x20994b0
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2099280, ws = 0x2099280
+01/26/2013 11:45:35 PM - workspace visible? fs = 0x2099030, ws = 0x2099030
+01/26/2013 11:45:37 PM - startup id = i3/i3-sensible-terminal/729-0-cerberus_TIME37953
+01/26/2013 11:45:37 PM - executing: i3-sensible-terminal
+01/26/2013 11:45:37 PM - Not a managed window, ignoring UnmapNotify event
+urxvt: unable to parse color 'grey ', using pink instead.
+01/26/2013 11:45:37 PM - WM_CLASS changed to urxvt (instance), URxvt (class)
+01/26/2013 11:45:37 PM - WM_NAME changed to "urxvt"
+01/26/2013 11:45:37 PM - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+01/26/2013 11:45:37 PM - _NET_WM_NAME changed to "urxvt"
+01/26/2013 11:45:37 PM - WM_HINTS.input changed to "1"
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:45:37 PM - dock status does not match
+01/26/2013 11:45:37 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:37 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:37 PM - _NET_WM_NAME changed to "comhack@cerberus:~"
+01/26/2013 11:45:40 PM - startup id = i3/i3-sensible-terminal/729-1-cerberus_TIME41337
+01/26/2013 11:45:40 PM - executing: i3-sensible-terminal
+01/26/2013 11:45:40 PM - Not a managed window, ignoring UnmapNotify event
+urxvt: unable to parse color 'grey ', using pink instead.
+01/26/2013 11:45:40 PM - WM_CLASS changed to urxvt (instance), URxvt (class)
+01/26/2013 11:45:40 PM - WM_NAME changed to "urxvt"
+01/26/2013 11:45:40 PM - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+01/26/2013 11:45:40 PM - _NET_WM_NAME changed to "urxvt"
+01/26/2013 11:45:40 PM - WM_HINTS.input changed to "1"
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - Checking window 0x0160000a (class URxvt)
+01/26/2013 11:45:40 PM - dock status does not match
+01/26/2013 11:45:40 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:40 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:40 PM - _NET_WM_NAME changed to "comhack@cerberus:~"
+01/26/2013 11:45:44 PM - splitting in direction h
+01/26/2013 11:45:45 PM - splitting in direction h
+01/26/2013 11:45:53 PM - Sending WM_DELETE to the client
+01/26/2013 11:45:53 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:53 PM - expose event for unknown window, ignoring
+01/26/2013 11:45:53 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:53 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:53 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:53 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:53 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:53 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:54 PM - Sending WM_DELETE to the client
+01/26/2013 11:45:54 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:45:54 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:54 PM - expose event for unknown window, ignoring
+01/26/2013 11:45:54 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:54 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:54 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:54 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:54 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:45:54 PM - Not a managed window, ignoring UnmapNotify event
+01/26/2013 11:46:03 PM - startup id = i3/i3-sensible-terminal/729-2-cerberus_TIME64689
+01/26/2013 11:46:03 PM - executing: i3-sensible-terminal
+01/26/2013 11:46:03 PM - Not a managed window, ignoring UnmapNotify event
+urxvt: unable to parse color 'grey ', using pink instead.
+01/26/2013 11:46:03 PM - WM_CLASS changed to urxvt (instance), URxvt (class)
+01/26/2013 11:46:03 PM - WM_NAME changed to "urxvt"
+01/26/2013 11:46:03 PM - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+01/26/2013 11:46:03 PM - _NET_WM_NAME changed to "urxvt"
+01/26/2013 11:46:03 PM - WM_HINTS.input changed to "1"
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - Checking window 0x0140000a (class URxvt)
+01/26/2013 11:46:03 PM - dock status does not match
+01/26/2013 11:46:03 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:46:03 PM - workspace visible? fs = 0x2092cb0, ws = 0x2092cb0
+01/26/2013 11:46:03 PM - _NET_WM_NAME changed to "comhack@cerberus:~"
+[libi3] libi3/font.c Using X font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+urxvt: X connection to ':0' broken, unable to recover, exiting.

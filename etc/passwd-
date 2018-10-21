@@ -1,0 +1,22 @@
+root:x:0:0::/root:/usr/bin/zsh
+bin:x:1:1::/:/sbin/nologin
+daemon:x:2:2::/:/sbin/nologin
+mail:x:8:12::/var/spool/mail:/sbin/nologin
+ftp:x:14:11::/srv/ftp:/sbin/nologin
+http:x:33:33::/srv/http:/sbin/nologin
+nobody:x:65534:65534:Nobody:/:/sbin/nologin
+dbus:x:81:81:System Message Bus:/:/sbin/nologin
+systemd-journal-remote:x:982:982:systemd Journal Remote:/:/sbin/nologin
+systemd-coredump:x:981:981:systemd Core Dumper:/:/sbin/nologin
+uuidd:x:68:68::/:/sbin/nologin
+usbmux:x:140:140:usbmux user:/:/sbin/nologin
+avahi:x:980:980:Avahi mDNS/DNS-SD daemon:/:/sbin/nologin
+colord:x:979:979:Color management daemon:/var/lib/colord:/sbin/nologin
+lightdm:x:620:620:Light Display Manager:/var/lib/lightdm:/sbin/nologin
+polkitd:x:102:102:PolicyKit daemon:/:/sbin/nologin
+rtkit:x:133:133:RealtimeKit:/proc:/sbin/nologin
+comhack:x:1000:985::/home/comhack:/usr/bin/zsh
+nvidia-persistenced:x:143:143:NVIDIA Persistence Daemon:/:/sbin/nologin
+git:x:978:978:git daemon user:/:/usr/bin/git-shell
+gluster:x:976:976:GlusterFS daemons:/var/run/gluster:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin

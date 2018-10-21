@@ -1,0 +1,122 @@
+urxvt*geometry:                52x20
+urxvt*font:xft:source code pro:pixelsize=14:antialias=true
+urxvt*boldFont:xft:source code pro:pixelsize=14:antialias=true
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
+urxvt*foreground: [100]#ffffff
+urxvt*borderless: 1
+urxvt*scrollBar:  false
+urxvt*scrollBar_right:      false
+urxvt*saveLines: 5000
+urxvt*tintColor: grey 
+urxvt*shading: 40 
+urxvt*termName: rxvt-256color
+URxvt.letterSpace: 0.2
+URxvt.lineSpace: 3
+urxvt*cursorBlink:  true
+urxvt*cursorUnderline: true
+urxvt*cursorColor:  #FFFFFF
+URxvt.internalBorder:   10
+URxvt.background: #3a3a3a
+URxvt.foreground: #f0f0f0
+URxvt.perl-ext-common:  default,matcher,font-size
+URxvt.url-launcher:      /usr/bin/chromium
+URxvt.matcher.button:   1
+
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
+*color0: #121212
+*color8: #2e3436
+*color1: #D64541
+*color9: #E74C3C
+*color2: #1793D1
+*color10: #addef6
+*color3: #F7CA18
+*color11: #F5D76E
+*color4: #4183D7
+*color12: #59ABE3
+*color5: #8E44AD
+*color13: #9B59B6
+*color6: #6BB9F0
+*color14: #89C4F4
+*color7: #BDC3C7
+*color15: #ececec
+
+!-- Xft settings -- !
+Xft.dpi:        100
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hinstyle:   full
+
+rofi.font:       source code pro 14
+rofi.forebackground: #FFFFFF
+rofi.background:     #000000
+
+rofi.opacity:                        80
+rofi.width:                          40
+rofi.lines:                          15
+rofi.columns:                        1
+rofi.fg:                             #FFFFFF
+rofi.bg:                             #000000
+rofi.color-enabled:                  false
+rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
+rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
+rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
+rofi.color-window:                   #fdf6e3,#002b36
+rofi.fg-active:                      #FFFFFF
+rofi.fg-urgent:                      #DC322F
+rofi.hlfg-active:                    #FDF6E3
+rofi.hlfg-urgent:                    #FDF6E3
+rofi.bg-active:                      #000000
+rofi.bg-urgent:                      #000000
+rofi.hlbg-active:                    #268BD2
+rofi.hlbg-urgent:                    #DC322F
+rofi.bgalt:                          #000000
+rofi.hlfg:                           #EEE8D5
+rofi.hlbg:                           #000000
+rofi.bc:                             #002B36
+rofi.bw:                             1
+rofi.location:                       0
+rofi.padding:                        5
+rofi.yoffset:                        0
+rofi.xoffset:                        0
+rofi.fixed-num-lines:                false
+rofi.terminal:                       urxvtc
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e {ssh-client} {port} {host}
+rofi.run-command:                    {cmd}
+rofi.run-list-command:               
+rofi.run-shell-command:              {terminal} -e {cmd}
+rofi.disable-history:                false
+rofi.levenshtein-sort:               true
+rofi.case-sensitive:                 false
+rofi.sidebar-mode:                   false
+rofi.lazy-filter-limit:              5000
+rofi.eh:                             1
+rofi.auto-select:                    false
+rofi.parse-hosts:                    false
+rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
+rofi.kb-secondary-paste:             Control+v,Insert
+rofi.kb-move-front:                  Control+a
+rofi.kb-move-end:                    Control+e
+rofi.kb-move-word-back:              Alt+b
+rofi.kb-move-word-forward:           Alt+f
+rofi.kb-move-char-back:              Left,Control+b
+rofi.kb-move-char-forward:           Right,Control+f
+rofi.kb-remove-word-back:            Control+Alt+h
+rofi.kb-remove-word-forward:         Control+Alt+d
+rofi.kb-remove-char-forward:         Delete,Control+d
+rofi.kb-remove-char-back:            BackSpace,Control+h
+rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
+rofi.kb-accept-custom:               Control+Return
+rofi.kb-accept-entry-continue:       Shift+Return
+rofi.kb-mode-next:                   Shift+Right,Control+Tab
+rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
+rofi.kb-toggle-case-sensitivity:     grave,dead_grave
+rofi.kb-delete-entry:                Shift+Delete

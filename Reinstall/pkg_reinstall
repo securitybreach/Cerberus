@@ -1,0 +1,5 @@
+pacman -Qqe
+
+pacman -Qqm AUR
+
+cat pkg.list | xargs pacaur -S --needed --noconfirm
