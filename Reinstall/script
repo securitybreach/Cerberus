@@ -1,0 +1,5 @@
+while read line; do
+	if [[ $line =~ [0-9\.]+ ]]; then
+		echo $BASH_REMATCH
+	fi
+done <pkg.list>pkg-num
