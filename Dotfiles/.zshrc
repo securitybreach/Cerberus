@@ -97,10 +97,12 @@ alias vtop='vtop --theme dark'
 #alias ls='ls --color=auto -Fsh'
 alias grep='grep --color=auto'
 alias rb='dbus-send --system --print-reply --dest="org.freedesktop.Hal" /org/freedesktop/Hal/devices/computer org.freedesktop.Hal.Device.SystemPowerManagement.Reboot'
-alias pa='pacaur -Syu'
+alias pa='yay -Syu'
 alias di='di -H -x tmpfs,run'
 alias tor='chromium --proxy-server="socks://localhost:9050"'
 alias weather='wego'
 source /usr/share/doc/pkgfile/command-not-found.zsh
 export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel' 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias mixer='pulsemixer'
+
