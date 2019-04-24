@@ -63,7 +63,7 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel' 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias mixer='pulsemixer'
-alias mkdir = 'mkdir -pv'
+alias mkdir='mkdir -pv'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
