@@ -2,13 +2,11 @@ urxvt*geometry:                52x20
 urxvt*font:xft:source code pro:pixelsize=14:antialias=true
 urxvt*boldFont:xft:source code pro:pixelsize=14:antialias=true
 urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/c800
-urxvt*foreground: [100]#ffffff
 urxvt*borderless: 1
 urxvt*scrollBar:  false
 urxvt*scrollBar_right:      false
 urxvt*saveLines: 5000
-urxvt*tintColor: grey 
+urxvt*tintColor: grey
 urxvt*shading: 40 
 urxvt*termName: rxvt-256color
 URxvt.letterSpace: 0.2
@@ -17,35 +15,59 @@ urxvt*cursorBlink:  true
 urxvt*cursorUnderline: true
 urxvt*cursorColor:  #FFFFFF
 URxvt.internalBorder:   10
-URxvt.background: #3a3a3a
-URxvt.foreground: #f0f0f0
-URxvt.perl-ext-common:  default,matcher,font-size
-URxvt.url-launcher:      /usr/bin/chromium
+URxvt.perl-ext-common:  default,matcher,vtwheel,font-size
+URxvt.url-launcher:      /usr/bin/firefox
 URxvt.matcher.button:   1
-
 URxvt.keysym.C-Up:     font-size:increase
 URxvt.keysym.C-Down:   font-size:decrease
-URxvt.keysym.C-S-Up:   font-size:incglobal
-URxvt.keysym.C-S-Down: font-size:decglobal
-URxvt.keysym.C-equal:  font-size:reset
-URxvt.keysym.C-slash:  font-size:show
 
-*color0: #121212
-*color8: #2e3436
-*color1: #D64541
-*color9: #E74C3C
-*color2: #1793D1
-*color10: #addef6
-*color3: #F7CA18
-*color11: #F5D76E
-*color4: #4183D7
-*color12: #59ABE3
-*color5: #8E44AD
-*color13: #9B59B6
-*color6: #6BB9F0
-*color14: #89C4F4
-*color7: #BDC3C7
-*color15: #ececec
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
+
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
+
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
 
 !-- Xft settings -- !
 Xft.dpi:        100
@@ -120,3 +142,5 @@ rofi.kb-mode-next:                   Shift+Right,Control+Tab
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
 rofi.kb-toggle-case-sensitivity:     grave,dead_grave
 rofi.kb-delete-entry:                Shift+Delete
+
+
