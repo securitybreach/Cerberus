@@ -9,7 +9,7 @@ urxvt*saveLines: 5000
 urxvt*tintColor: grey
 urxvt*shading: 40 
 urxvt*termName: rxvt-256color
-URxvt.letterSpace: 0.2
+URxvt.letterSpace: -1
 URxvt.lineSpace: 3
 urxvt*cursorBlink:  true
 urxvt*cursorUnderline: true
@@ -142,5 +142,3 @@ rofi.kb-mode-next:                   Shift+Right,Control+Tab
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
 rofi.kb-toggle-case-sensitivity:     grave,dead_grave
 rofi.kb-delete-entry:                Shift+Delete
-
-
