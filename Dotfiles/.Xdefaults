@@ -120,4 +120,8 @@ rofi.kb-accept-entry-continue:       Shift+Return
 rofi.kb-mode-next:                   Shift+Right,Control+Tab
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
 rofi.kb-toggle-case-sensitivity:     grave,dead_grave
+<<<<<<< HEAD
 rofi.kb-delete-entry: Shift+Delete
+=======
+rofi.kb-delete-entry:                Shift+Delete
+>>>>>>> 3182da619c4c7f5db73010b180a8a2d8a1ccda61
