@@ -9,7 +9,7 @@ urxvt*saveLines: 5000
 urxvt*tintColor: grey
 urxvt*shading: 40 
 urxvt*termName: rxvt-256color
-URxvt.letterSpace: 0.2
+URxvt.letterSpace: -1
 URxvt.lineSpace: 3
 urxvt*cursorBlink:  true
 urxvt*cursorUnderline: true
@@ -20,14 +20,6 @@ URxvt.url-launcher:      /usr/bin/firefox
 URxvt.matcher.button:   1
 URxvt.keysym.C-Up:     font-size:increase
 URxvt.keysym.C-Down:   font-size:decrease
-
-! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
-! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
-
-! Project:    Nord XResources
-! Version:    0.1.0
-! Repository: https://github.com/arcticicestudio/nord-xresources
-! License:    MIT
 
 #define nord0 #2E3440
 #define nord1 #3B4252
@@ -84,25 +76,12 @@ rofi.opacity:                        80
 rofi.width:                          40
 rofi.lines:                          15
 rofi.columns:                        1
-rofi.fg:                             #FFFFFF
-rofi.bg:                             #000000
-rofi.color-enabled:                  false
-rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
-rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
-rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
-rofi.color-window:                   #fdf6e3,#002b36
-rofi.fg-active:                      #FFFFFF
-rofi.fg-urgent:                      #DC322F
-rofi.hlfg-active:                    #FDF6E3
-rofi.hlfg-urgent:                    #FDF6E3
-rofi.bg-active:                      #000000
-rofi.bg-urgent:                      #000000
-rofi.hlbg-active:                    #268BD2
-rofi.hlbg-urgent:                    #DC322F
-rofi.bgalt:                          #000000
-rofi.hlfg:                           #EEE8D5
-rofi.hlbg:                           #000000
-rofi.bc:                             #002B36
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+
 rofi.bw:                             1
 rofi.location:                       0
 rofi.padding:                        5
@@ -141,6 +120,4 @@ rofi.kb-accept-entry-continue:       Shift+Return
 rofi.kb-mode-next:                   Shift+Right,Control+Tab
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
 rofi.kb-toggle-case-sensitivity:     grave,dead_grave
-rofi.kb-delete-entry:                Shift+Delete
-
-
+rofi.kb-delete-entry: Shift+Delete
