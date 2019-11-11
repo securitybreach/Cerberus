@@ -1,5 +1,3 @@
-pacman -Qqe
+pacman -Q | awk '{print $1}' > pkg.list
 
-pacman -Qqm AUR
-
-cat pkg.list | xargs pacaur -S --needed --noconfirm
+cat pkg.list | xargs yay -S --needed --noconfirm
