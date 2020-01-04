@@ -40,6 +40,9 @@ alias myip='curl ifconfig.me'
 alias mixer='pulsemixer'
 alias mail='neomutt'
 alias mkdir='mkdir -pv'
+alias resup='xrandr --output DP-2 --scale-from 3840x2160'
+alias resdown='xrandr --output DP-2 --scale 0.7x0.7'
+
 # curl -s cheat.sh/cp
 
 # Transfer file 
