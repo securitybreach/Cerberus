@@ -115,6 +115,7 @@ regex/^\[git\]
 	Open=%cd %p/changesetfs://
 	View=%cd %p/patchsetfs://
 
+
 ### Archives ###
 
 # .tgz, .tpz, .tar.gz, .tar.z, .tar.Z, .ipk, .gem
@@ -334,9 +335,6 @@ shell/i/.f
 regex/i/\.(s|asm)$
 	Include=editor
 
-include/editor
-	Open=%var{EDITOR:vi} %f
-
 # .so libraries
 regex/\.(so|so\.[0-9\.]*)$
 	View=%view{ascii} /usr/lib/mc/ext.d/misc.sh view so
@@ -345,6 +343,7 @@ regex/\.(so|so\.[0-9\.]*)$
 type/^ELF
 	#Open=%var{PAGER:more} %f
 	View=%view{ascii} /usr/lib/mc/ext.d/misc.sh view elf
+
 
 ### Documentation ###
 
@@ -424,6 +423,7 @@ regex/([^0-9]|^[^\.]*)\.([1-9][A-Za-z]*|[ln])\.zst$
 shell/i/.chm
 	Open=/usr/lib/mc/ext.d/text.sh open chm
 
+
 ### Images ###
 
 type/^GIF
@@ -476,10 +476,6 @@ shell/.ico
 shell/i/.svg
 	View=%view{ascii} /usr/lib/mc/ext.d/image.sh view svg
 	Open=/usr/lib/mc/ext.d/image.sh open svg
-
-include/image
-	Open=/usr/lib/mc/ext.d/image.sh open ALL_FORMATS
-	View=%view{ascii} /usr/lib/mc/ext.d/image.sh view ALL_FORMATS
 
 
 ### Sound files ###
@@ -567,10 +563,6 @@ shell/i/.webm
 type/WebM
     Include=video
 
-include/video
-	Open=/usr/lib/mc/ext.d/video.sh open ALL_FORMATS
-	View=%view{ascii} /usr/lib/mc/ext.d/video.sh view ALL_FORMATS
-
 
 ### Documents ###
 
@@ -607,7 +599,7 @@ shell/i/.gnumeric
 	Open=/usr/lib/mc/ext.d/doc.sh open gnumeric
 
 # Microsoft Word Document
-regex/i/\.(do[ct]|wri)$
+regex/i/\.(do[ct]|wri|docx)$
 	Open=/usr/lib/mc/ext.d/doc.sh open msdoc
 	View=%view{ascii} /usr/lib/mc/ext.d/doc.sh view msdoc
 type/^Microsoft\ Word
@@ -626,12 +618,15 @@ type/^Microsoft\ Excel
 	Open=/usr/lib/mc/ext.d/doc.sh open msxls
 	View=%view{ascii} /usr/lib/mc/ext.d/doc.sh view msxls
 
-regex/i/\.(ppt|pps)$
+# Microsoft PowerPoint Presentation
+regex/i/\.(pp[ts]|pptx)$
 	Open=/usr/lib/mc/ext.d/doc.sh open msppt
 	View=%view{ascii} /usr/lib/mc/ext.d/doc.sh view msppt
 
-# Use OpenOffice.org to open any MS Office documents
+# Use OpenOffice.org/LibreOffice to open any MS Office documents
 type/^Microsoft\ Office\ Document
+	Open=/usr/lib/mc/ext.d/doc.sh open ooffice
+type/^Microsoft\ OOXML
 	Open=/usr/lib/mc/ext.d/doc.sh open ooffice
 
 # Framemaker
@@ -645,6 +640,10 @@ shell/i/.dvi
 
 # TeX
 shell/i/.tex
+	Include=editor
+
+# Markdown
+shell/i/.md
 	Include=editor
 
 # DjVu
@@ -720,6 +719,7 @@ shell/i/.lyx
 # torrent
 shell/i/.torrent
 	View=%view{ascii} /usr/lib/mc/ext.d/misc.sh view torrent
+
 
 ### Plain compressed files ###
 
@@ -815,6 +815,22 @@ regex/\.zst$
 # Parity Archive
 type/^Parity\ Archive\ Volume\ Set
 	Open=/usr/lib/mc/ext.d/archive.sh open par2
+
+
+### Includes
+# includes should be at end of bindings
+
+include/editor
+	Open=%var{EDITOR:vi} %f
+
+include/image
+	Open=/usr/lib/mc/ext.d/image.sh open ALL_FORMATS
+	View=%view{ascii} /usr/lib/mc/ext.d/image.sh view ALL_FORMATS
+
+include/video
+	Open=/usr/lib/mc/ext.d/video.sh open ALL_FORMATS
+	View=%view{ascii} /usr/lib/mc/ext.d/video.sh view ALL_FORMATS
+
 
 ### Default ###
 

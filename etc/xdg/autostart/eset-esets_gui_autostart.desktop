@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=ESET NOD32 Antivirus
+Icon=/opt/eset/esets/share/menu/app_icon_128.png
+Exec=/opt/eset/esets/bin/esets_gui --autostart
+Terminal=false
+Categories=System;Security;Utility;
+StartupNotify=false
+X-KDE-autostart-after=panel
+X-GNOME-Autostart-Phase=Application

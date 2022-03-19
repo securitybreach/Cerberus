@@ -1,0 +1,13 @@
+[Unit]
+Description=Private Internet Access daemon
+# Ensure we have network before starting daemon
+After=syslog.target network.target
+
+[Service]
+Environment="LD_LIBRARY_PATH=/opt/piavpn/lib"
+ExecStart=/opt/piavpn/bin/pia-daemon
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

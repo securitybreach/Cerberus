@@ -1,10 +1,10 @@
-screen    -t Archberry 0 ssh -p xxxx xxxxxxx@xxx.xxx.x.x
+screen    -t files    0 fff
 screen    -t darkStar 1 ssh -p 6666 comhack@69.164.210.120 
-screen    -t shell    2 
-screen    -t          3 
-screen    -t mpd      4 ncmpcpp
+screen    -t mail     2 neomutt
+screen    -t shell    3 
+screen    -t mpd      4 cmus
 screen    -t glances  5 glances
-screen    -t mc       6 mc -S nicedark
+screen    -t shell    6 
 screen    -t pandora  7 
 screen	  -t nmon     8 nmon cmduan
 screen	  -t shell    9

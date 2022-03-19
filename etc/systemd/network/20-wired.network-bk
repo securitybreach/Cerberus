@@ -1,0 +1,8 @@
+/etc/systemd/network/20-wired.network
+[Match]
+Name=enp5s0
+
+[Network]
+Address=192.168.1.2
+Gateway=192.168.1.1
+DNS=8.8.8.8

@@ -55,7 +55,10 @@
     <name xml:lang="he">פתח מסוף כאן</name>
     <name xml:lang="hr">Otvori terminal ovdje</name>
     <name xml:lang="hu">Terminál nyitása itt</name>
+    <name xml:lang="hy">Բացել վահանակն այստեղ</name>
+    <name xml:lang="hy_AM">Բացել վահանակն այստեղ</name>
     <name xml:lang="id">Buka Terminal Di sini</name>
+    <name xml:lang="ie">Aperter li Terminal ci</name>
     <name xml:lang="is">Opna skjáhermi hér</name>
     <name xml:lang="it">Apri un terminale qui</name>
     <name xml:lang="ja">ここで Terminal を開く</name>
@@ -116,7 +119,10 @@
     <description xml:lang="he">דוגמה של פעולה מותאמת אישית</description>
     <description xml:lang="hr">Primjer prilagođene radnje</description>
     <description xml:lang="hu">Példa egyéni műveletre</description>
+    <description xml:lang="hy">Ընտրովի գործողութեան աւրինակ</description>
+    <description xml:lang="hy_AM">Ընտրովի գործողութեան աւրինակ</description>
     <description xml:lang="id">Contoh untuk aksi suai</description>
+    <description xml:lang="ie">Exemple de un personal action</description>
     <description xml:lang="is">Dæmi um sérsniðna aðgerð</description>
     <description xml:lang="it">Esempio di azione personalizzata</description>
     <description xml:lang="ja">カスタムアクションの例です。</description>

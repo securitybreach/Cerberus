@@ -17,7 +17,7 @@
 # some files are likely to remain, so it is best if this folder not be one
 # that is shared by other users.  This is a single folder.
 # 
-# (temp-path "${gimp_dir}/tmp")
+# (temp-path "${gimp_temp_dir}")
 
 # Sets the swap file location. GIMP uses a tile based memory allocation
 # scheme. The swap file is used to quickly and easily swap tiles out to disk
@@ -27,10 +27,15 @@
 # it may be desirable to put your swap file in "/tmp".  This is a single
 # folder.
 # 
-# (swap-path "${gimp_dir}")
+# (swap-path "${gimp_cache_dir}")
 
-# Sets how many processors GIMP should try to use simultaneously.  This is an
-# integer value.
+# The compression method used for tile data stored in the swap file.  This is
+# a string value.
+# 
+# (swap-compression "fast")
+
+# Sets how many threads GIMP should use for operations that support it.  This
+# is an integer value.
 # 
 # (num-processors 1)
 
@@ -42,7 +47,12 @@
 # specified in bytes, kilobytes, megabytes or gigabytes. If no suffix is
 # specified the size defaults to being specified in kilobytes.
 # 
-# (tile-cache-size 1421926k)
+# (tile-cache-size 2g)
+
+# When enabled, uses OpenCL for some operations.  Possible values are yes and
+# no.
+# 
+# (use-opencl no)
 
 # Specifies the language to use for the user interface.  This is a string
 # value.
@@ -50,7 +60,7 @@
 # 
 
 # Sets the level of interpolation used for scaling and other transformations.
-#  Possible values are none, linear, cubic and lanczos.
+#  Possible values are none, linear, cubic, nohalo and lohalo.
 # 
 # (interpolation-type cubic)
 
@@ -100,6 +110,15 @@
 # 
 # (dynamics-path-writable "${gimp_dir}/dynamics")
 
+# Sets the brush search path.  This is a colon-separated list of folders to
+# search.
+# 
+# (mypaint-brush-path "/usr/share/mypaint-data/1.0/brushes:~/.mypaint/brushes")
+
+# This is a colon-separated list of folders to search.
+# 
+# (mypaint-brush-path-writable "~/.mypaint/brushes")
+
 # Sets the pattern search path.  This is a colon-separated list of folders to
 # search.
 # 
@@ -144,12 +163,16 @@
 # Specify a default brush.  The brush is searched for in the specified brush
 # path.  This is a string value.
 # 
-# (default-brush "Round Fuzzy")
+# (default-brush "2. Hardness 050")
 
 # Specify a default dynamics.  The dynamics is searched for in the specified
 # dynamics path.  This is a string value.
 # 
 # (default-dynamics "Dynamics Off")
+
+# Specify a default MyPaint brush.  This is a string value.
+# 
+# (default-mypaint-brush "Fixme")
 
 # Specify a default pattern.  This is a string value.
 # 
@@ -170,7 +193,7 @@
 
 # Specify a default font.  This is a string value.
 # 
-# (default-font "Sans")
+# (default-font "Sans-serif")
 
 # When enabled, the selected brush will be used for all tools.  Possible
 # values are yes and no.
@@ -205,27 +228,30 @@
 # Sets the default image in the "File/New" dialog.  This is a parameter list.
 # 
 # (default-image
-#     (width 640)
-#     (height 400)
+#     (width 1920)
+#     (height 1080)
 #     (unit pixels)
-#     (xresolution 72.000000)
-#     (yresolution 72.000000)
+#     (xresolution 300)
+#     (yresolution 300)
 #     (resolution-unit inches)
 #     (image-type rgb)
-#     (fill-type background-fill)
+#     (precision u8-gamma)
+#     (color-managed yes)
+#     (color-profile NULL)
+#     (fill-type background)
 #     (comment "Created with GIMP"))
 
 # Specify a default image grid.  This is a parameter list.
 # 
 # (default-grid
 #     (style solid)
-#     (fgcolor (color-rgba 0.000000 0.000000 0.000000 1.000000))
-#     (bgcolor (color-rgba 1.000000 1.000000 1.000000 1.000000))
-#     (xspacing 10.000000)
-#     (yspacing 10.000000)
+#     (fgcolor (color-rgba 0 0 0 1))
+#     (bgcolor (color-rgba 1 1 1 1))
+#     (xspacing 10)
+#     (yspacing 10)
 #     (spacing-unit inches)
-#     (xoffset 0.000000)
-#     (yoffset 0.000000)
+#     (xoffset 0)
+#     (yoffset 0)
 #     (offset-unit inches))
 
 # Sets the minimal number of operations that can be undone. More undo levels
@@ -241,7 +267,7 @@
 # bytes, kilobytes, megabytes or gigabytes. If no suffix is specified the
 # size defaults to being specified in kilobytes.
 # 
-# (undo-size 64M)
+# (undo-size 1g)
 
 # Sets the size of the previews in the Undo History.  Possible values are
 # tiny, extra-small, small, medium, large, extra-large, huge, enormous and
@@ -249,8 +275,8 @@
 # 
 # (undo-preview-size large)
 
-# How many recently used plug-ins to keep on the Filters menu.  This is an
-# integer value.
+# How many recently used filters and plug-ins to keep on the Filters menu. 
+# This is an integer value.
 # 
 # (plug-in-history-size 10)
 
@@ -263,6 +289,12 @@
 # down when working with large images.  Possible values are yes and no.
 # 
 # (layer-previews yes)
+
+# Sets whether GIMP should create previews of layer groups. Layer group
+# previews are more expensive than ordinary layer previews.  Possible values
+# are yes and no.
+# 
+# (group-layer-previews yes)
 
 # Sets the preview size used for layers and channel previews in newly created
 # dialogs.  Possible values are tiny, extra-small, small, medium, large,
@@ -288,16 +320,15 @@
 # (color-management
 #     (mode display)
 #     (display-profile-from-gdk no)
-#     (display-rendering-intent perceptual)
+#     (display-rendering-intent relative-colorimetric)
+#     (display-use-black-point-compensation yes)
+#     (display-optimize yes)
 #     (simulation-rendering-intent perceptual)
+#     (simulation-use-black-point-compensation no)
+#     (simulation-optimize yes)
 #     (simulation-gamut-check no)
-#     (out-of-gamut-color (color-rgb 0.501961 0.501961 0.501961))
+#     (out-of-gamut-color (color-rgb 1 0 1))
 #     (display-module "CdisplayLcms"))
-
-# How to handle embedded color profiles when opening a file.  Possible values
-# are ask, keep and convert.
-# 
-# (color-profile-policy ask)
 
 # Keep a permanent record of all opened and saved files in the Recent
 # Documents list.  Possible values are yes and no.
@@ -308,7 +339,55 @@
 # (color-rgba red green blue alpha) with channel values as floats in the
 # range of 0.0 to 1.0.
 # 
-# (quick-mask-color (color-rgba 1.000000 0.000000 0.000000 0.500000))
+# (quick-mask-color (color-rgba 1 0 0 0.5))
+
+# Promote imported images to floating point precision. Does not apply to
+# indexed images.  Possible values are yes and no.
+# 
+# (import-promote-float no)
+
+# When promoting imported images to floating point precision, also add
+# minimal noise in order to distribute color values a bit.  Possible values
+# are yes and no.
+# 
+# (import-promote-dither yes)
+
+# Add an alpha channel to all layers of imported images.  Possible values are
+# yes and no.
+# 
+# (import-add-alpha no)
+
+# Which plug-in to use for importing raw digital camera files.  This is a
+# single filename.
+# 
+# (import-raw-plug-in "")
+
+# Export file type used by default.  Possible values are png, jpg, ora, psd,
+# pdf, tif, bmp and webp.
+# 
+# (export-file-type png)
+
+# Export the image's color profile by default.  Possible values are yes and
+# no.
+# 
+# (export-color-profile yes)
+
+# Export Exif metadata by default.  Possible values are yes and no.
+# 
+# (export-metadata-exif yes)
+
+# Export XMP metadata by default.  Possible values are yes and no.
+# 
+# (export-metadata-xmp yes)
+
+# Export IPTC metadata by default.  Possible values are yes and no.
+# 
+# (export-metadata-iptc yes)
+
+# Try generating debug data for bug reporting when appropriate.  Possible
+# values are warning, critical, fatal and never.
+# 
+# (debug-policy fatal)
 
 # Sets the size of the checkerboard used to display transparency.  Possible
 # values are small-checks, medium-checks and large-checks.
@@ -333,14 +412,20 @@
 # (marching-ants-speed 200)
 
 # When enabled, the image window will automatically resize itself when
-# zooming into and out of images.  Possible values are yes and no.
+# zooming into and out of images. This setting only takes effect in
+# multi-window mode.  Possible values are yes and no.
 # 
 # (resize-windows-on-zoom no)
 
 # When enabled, the image window will automatically resize itself whenever
-# the physical image size changes.  Possible values are yes and no.
+# the physical image size changes. This setting only takes effect in
+# multi-window mode.  Possible values are yes and no.
 # 
 # (resize-windows-on-resize no)
+
+# Show full image content by default.  Possible values are yes and no.
+# 
+# (default-show-all no)
 
 # When enabled, this will ensure that each pixel of an image gets mapped to a
 # pixel on the screen.  Possible values are yes and no.
@@ -353,18 +438,10 @@
 # 
 # (initial-zoom-to-fit yes)
 
-# When enabled, the X server is queried for the mouse's current position on
-# each motion event, rather than relying on the position hint.  This means
-# painting with large brushes should be more accurate, but it may be slower. 
-# Conversely, on some X servers enabling this option results in faster
-# painting.  Possible values are yes and no.
-# 
-# (perfect-mouse yes)
-
 # Sets the type of mouse pointers to use.  Possible values are tool-icon,
 # tool-crosshair and crosshair.
 # 
-# (cursor-mode tool-icon)
+# (cursor-mode tool-crosshair)
 
 # Context-dependent mouse pointers are helpful.  They are enabled by default.
 #  However, they require overhead that you may want to do without.  Possible
@@ -398,6 +475,8 @@
 # %Cx expands to x if the image is clean, the empty string otherwise
 # %B  expands to (modified) if the image is dirty, the empty string otherwise
 # %A  expands to (clean) if the image is clean, the empty string otherwise
+# %Nx expands to x if the image is export-dirty, the empty string otherwise
+# %Ex expands to x if the image is export-clean, the empty string otherwise
 # %l  the number of layers
 # %L  the number of layers (long form)
 # %m  memory used by the image
@@ -410,9 +489,14 @@
 # %M  the image size expressed in megapixels
 # %u  unit symbol
 # %U  unit abbreviation
+# %x  the width of the active layer/channel in pixels
+# %X  the width of the active layer/channel in real-world units
+# %y  the height of the active layer/channel in pixels
+# %Y  the height of the active layer/channel in real-world units
+# %o  the name of the image's color profile
 # 
 # 
-# (image-title-format "%D*%f-%p.%i (%t, %L) %wx%h")
+# (image-title-format "%D*%f-%p.%i (%t, %o, %L) %wx%h")
 
 # Sets the text to appear in image window status bars.  This is a format
 # string; certain % character sequences are recognised and expanded as
@@ -431,6 +515,8 @@
 # %Cx expands to x if the image is clean, the empty string otherwise
 # %B  expands to (modified) if the image is dirty, the empty string otherwise
 # %A  expands to (clean) if the image is clean, the empty string otherwise
+# %Nx expands to x if the image is export-dirty, the empty string otherwise
+# %Ex expands to x if the image is export-clean, the empty string otherwise
 # %l  the number of layers
 # %L  the number of layers (long form)
 # %m  memory used by the image
@@ -443,6 +529,11 @@
 # %M  the image size expressed in megapixels
 # %u  unit symbol
 # %U  unit abbreviation
+# %x  the width of the active layer/channel in pixels
+# %X  the width of the active layer/channel in real-world units
+# %y  the height of the active layer/channel in pixels
+# %Y  the height of the active layer/channel in real-world units
+# %o  the name of the image's color profile
 # 
 # 
 # (image-status-format "%n (%m)")
@@ -451,13 +542,13 @@
 # forces the X server to be queried for both horizontal and vertical
 # resolution information.  This is a float value.
 # 
-# (monitor-xresolution 96.000000)
+# (monitor-xresolution 96)
 
 # Sets the monitor's vertical resolution, in dots per inch.  If set to 0,
 # forces the X server to be queried for both horizontal and vertical
 # resolution information.  This is a float value.
 # 
-# (monitor-yresolution 96.000000)
+# (monitor-yresolution 96)
 
 # When enabled, GIMP will use the monitor resolution from the windowing
 # system.  Possible values are yes and no.
@@ -479,11 +570,17 @@
 #     (show-scrollbars yes)
 #     (show-selection yes)
 #     (show-layer-boundary yes)
+#     (show-canvas-boundary yes)
 #     (show-guides yes)
 #     (show-grid no)
 #     (show-sample-points yes)
+#     (snap-to-guides yes)
+#     (snap-to-grid no)
+#     (snap-to-canvas no)
+#     (snap-to-path no)
 #     (padding-mode default)
-#     (padding-color (color-rgb 1.000000 1.000000 1.000000)))
+#     (padding-color (color-rgb 1 1 1))
+#     (padding-in-show-all no))
 
 # Sets the default settings used when an image is viewed in fullscreen mode. 
 # This is a parameter list.
@@ -495,31 +592,17 @@
 #     (show-scrollbars yes)
 #     (show-selection yes)
 #     (show-layer-boundary yes)
+#     (show-canvas-boundary yes)
 #     (show-guides yes)
 #     (show-grid no)
 #     (show-sample-points yes)
+#     (snap-to-guides yes)
+#     (snap-to-grid no)
+#     (snap-to-canvas no)
+#     (snap-to-path no)
 #     (padding-mode default)
-#     (padding-color (color-rgb 1.000000 1.000000 1.000000)))
-
-# Snap to guides by default in new image windows.  Possible values are yes
-# and no.
-# 
-# (default-snap-to-guides yes)
-
-# Snap to the grid by default in new image windows.  Possible values are yes
-# and no.
-# 
-# (default-snap-to-grid no)
-
-# Snap to the canvas edge by default in new image windows.  Possible values
-# are yes and no.
-# 
-# (default-snap-to-canvas no)
-
-# Snap to the active path by default in new image windows.  Possible values
-# are yes and no.
-# 
-# (default-snap-to-path no)
+#     (padding-color (color-rgb 1 1 1))
+#     (padding-in-show-all no))
 
 # When enabled, an image will become the active image when its image window
 # receives the focus. This is useful for window managers using "click to
@@ -542,16 +625,31 @@
 # 
 # (use-event-history no)
 
+# When enabled, non-visible layers can be edited as normal.  Possible values
+# are yes and no.
+# 
+# (edit-non-visible no)
+
 # If enabled, the move tool sets the edited layer or path as active.  This
 # used to be the default behaviour in older versions.  Possible values are
 # yes and no.
 # 
 # (move-tool-changes-active no)
 
-# How many recent settings to keep around in color correction tools  This is
-# an integer value.
+# How many recent settings to keep around in filter tools.  This is an
+# integer value.
 # 
-# (image-map-tool-max-recent 10)
+# (filter-tool-max-recent 10)
+
+# Default to the last used settings in filter tools.  Possible values are yes
+# and no.
+# 
+# (filter-tool-use-last-settings no)
+
+# Show advanced color options in filter tools.  Possible values are yes and
+# no.
+# 
+# (filter-tool-show-color-options no)
 
 # When enabled, GIMP will not save an image if it has not been changed since
 # it was opened.  Possible values are yes and no.
@@ -561,7 +659,13 @@
 # Remember the current tool, pattern, color, and brush across GIMP sessions. 
 # Possible values are yes and no.
 # 
-# (save-device-status no)
+# (save-device-status yes)
+
+# When enabled, the same tool and tool options will be used for all input
+# devices. No tool switching will occur when the input device changes. 
+# Possible values are yes and no.
+# 
+# (devices-share-tool no)
 
 # Save the positions and sizes of the main dialogs when GIMP exits.  Possible
 # values are yes and no.
@@ -573,9 +677,15 @@
 # 
 # (restore-session yes)
 
+# When enabled, GIMP will try to restore windows on the monitor they were
+# open before.  When disabled, windows will appear on the currently used
+# monitor.  Possible values are yes and no.
+# 
+# (restore-monitor no)
+
 # Save the tool options when GIMP exits.  Possible values are yes and no.
 # 
-# (save-tool-options no)
+# (save-tool-options yes)
 
 # Show a tooltip when the pointer hovers over an item.  Possible values are
 # yes and no.
@@ -642,7 +752,21 @@
 
 # The name of the theme to use.  This is a string value.
 # 
-# (theme "Default")
+# (theme "Dark")
+
+# Sets the icon theme search path.  This is a colon-separated list of folders
+# to search.
+# 
+# (icon-theme-path "${gimp_dir}/icons:${gimp_data_dir}/icons")
+
+# The name of the icon theme to use.  This is a string value.
+# 
+# (icon-theme "Symbolic")
+
+# The size of the icons to use.  Possible values are auto, theme, small,
+# medium, large and huge.
+# 
+# (icon-size auto)
 
 # When enabled, pressing F1 will open the help browser.  Possible values are
 # yes and no.
@@ -667,6 +791,15 @@
 # 
 # (help-browser gimp)
 
+# When enabled, a search of actions will also return inactive actions. 
+# Possible values are yes and no.
+# 
+# (search-show-unavailable-actions no)
+
+# The maximum number of actions saved in history.  This is an integer value.
+# 
+# (action-history-size 100)
+
 # When enabled, the online user manual will be used by the help system.
 # Otherwise the locally installed copy is used.  Possible values are yes and
 # no.
@@ -676,7 +809,7 @@
 # The location of the online user manual. This is used if
 # 'user-manual-online' is enabled.  This is a string value.
 # 
-# (user-manual-online-uri "http://docs.gimp.org/2.8")
+# (user-manual-online-uri "https://docs.gimp.org/2.10")
 
 # The window type hint that is set on dock windows and the toolbox window.
 # This may affect the way your window manager decorates and handles these
@@ -684,15 +817,287 @@
 # 
 # (dock-window-hint utility)
 
-# Sets the pixel format to use for mouse pointers.  Possible values are
-# bitmap and pixbuf.
-# 
-# (cursor-format pixbuf)
-
 # Sets the handedness for cursor positioning.  Possible values are left and
 # right.
 # 
 # (cursor-handedness right)
+
+# Enable the N-Point Deformation tool.  Possible values are yes and no.
+# 
+# (playground-npd-tool no)
+
+# Enable the Seamless Clone tool.  Possible values are yes and no.
+# 
+# (playground-seamless-clone-tool no)
+
+# How to handle embedded color profiles when opening a file.  Possible values
+# are ask, keep and convert.
+# 
+# (color-profile-policy ask)
+
+# Sets the default folder path for all color profile file dialogs.  This is a
+# single filename.
+# 
+# 
+
+# Sets the default rendering intent for the 'Convert to Color Profile'
+# dialog.  Possible values are perceptual, relative-colorimetric, saturation
+# and absolute-colorimetric.
+# 
+# (image-convert-profile-intent relative-colorimetric)
+
+# Sets the default 'Black Point Compensation' state for the 'Convert to Color
+# Profile' dialog.  Possible values are yes and no.
+# 
+# (image-convert-profile-black-point-compensation yes)
+
+# Sets the default layer dithering method for the 'Convert Precision' dialog.
+#  Possible values are none, floyd-steinberg, bayer, random,
+# random-covariant, add, add-covariant, xor and xor-covariant.
+# 
+# (image-convert-precision-layer-dither-method none)
+
+# Sets the default text layer dithering method for the 'Convert Precision'
+# dialog.  Possible values are none, floyd-steinberg, bayer, random,
+# random-covariant, add, add-covariant, xor and xor-covariant.
+# 
+# (image-convert-precision-text-layer-dither-method none)
+
+# Sets the default channel dithering method for the 'Convert Precision'
+# dialog.  Possible values are none, floyd-steinberg, bayer, random,
+# random-covariant, add, add-covariant, xor and xor-covariant.
+# 
+# (image-convert-precision-channel-dither-method none)
+
+# Sets the default palette type for the 'Convert to Indexed' dialog. 
+# Possible values are generate, web, mono and custom.
+# 
+# (image-convert-indexed-palette-type generate)
+
+# Sets the default maximum number of colors for the 'Convert to Indexed'
+# dialog.  This is an integer value.
+# 
+# (image-convert-indexed-max-colors 256)
+
+# Sets the default 'Remove duplicate colors' state for the 'Convert to
+# Indexed' dialog.  Possible values are yes and no.
+# 
+# (image-convert-indexed-remove-duplicates yes)
+
+# Sets the default dithering type for the 'Convert to Indexed' dialog. 
+# Possible values are none, fs, fs-lowbleed and fixed.
+# 
+# (image-convert-indexed-dither-type none)
+
+# Sets the default 'Dither alpha' state for the 'Convert to Indexed' dialog. 
+# Possible values are yes and no.
+# 
+# (image-convert-indexed-dither-alpha no)
+
+# Sets the default 'Dither text layers' state for the 'Convert to Indexed'
+# dialog.  Possible values are yes and no.
+# 
+# (image-convert-indexed-dither-text-layers no)
+
+# Sets the default fill type for the 'Canvas Size' dialog.  Possible values
+# are foreground, background, white, transparent and pattern.
+# 
+# (image-resize-fill-type transparent)
+
+# Sets the default set of layers to resize for the 'Canvas Size' dialog. 
+# Possible values are none, all, image-sized, visible and linked.
+# 
+# (image-resize-layer-set none)
+
+# Sets the default 'Resize text layers' state for the 'Canvas Size' dialog. 
+# Possible values are yes and no.
+# 
+# (image-resize-resize-text-layers no)
+
+# Sets the default layer name for the 'New Layer' dialog.  This is a string
+# value.
+# 
+# (layer-new-name "Layer")
+
+# Sets the default mode for the 'New Layer' dialog.  Possible values are
+# normal-legacy, dissolve, behind-legacy, multiply-legacy, screen-legacy,
+# overlay-legacy, difference-legacy, addition-legacy, subtract-legacy,
+# darken-only-legacy, lighten-only-legacy, hsv-hue-legacy,
+# hsv-saturation-legacy, hsl-color-legacy, hsv-value-legacy, divide-legacy,
+# dodge-legacy, burn-legacy, hardlight-legacy, softlight-legacy,
+# grain-extract-legacy, grain-merge-legacy, color-erase-legacy, overlay,
+# lch-hue, lch-chroma, lch-color, lch-lightness, normal, behind, multiply,
+# screen, difference, addition, subtract, darken-only, lighten-only, hsv-hue,
+# hsv-saturation, hsl-color, hsv-value, divide, dodge, burn, hardlight,
+# softlight, grain-extract, grain-merge, vivid-light, pin-light,
+# linear-light, hard-mix, exclusion, linear-burn, luma-darken-only,
+# luma-lighten-only, luminance, color-erase, erase, merge, split,
+# pass-through, replace and anti-erase.
+# 
+# (layer-new-mode normal)
+
+# Sets the default blend space for the 'New Layer' dialog.  Possible values
+# are auto, rgb-linear, rgb-perceptual and lab.
+# 
+# (layer-new-blend-space auto)
+
+# Sets the default composite space for the 'New Layer' dialog.  Possible
+# values are auto, rgb-linear, rgb-perceptual and lab.
+# 
+# (layer-new-composite-space auto)
+
+# Sets the default composite mode for the 'New Layer' dialog.  Possible
+# values are auto, union, clip-to-backdrop, clip-to-layer and intersection.
+# 
+# (layer-new-composite-mode auto)
+
+# Sets the default opacity for the 'New Layer' dialog.  This is a float
+# value.
+# 
+# (layer-new-opacity 1)
+
+# Sets the default fill type for the 'New Layer' dialog.  Possible values are
+# foreground, background, white, transparent and pattern.
+# 
+# (layer-new-fill-type transparent)
+
+# Sets the default fill type for the 'Layer Boundary Size' dialog.  Possible
+# values are foreground, background, white, transparent and pattern.
+# 
+# (layer-resize-fill-type transparent)
+
+# Sets the default mask for the 'Add Layer Mask' dialog.  Possible values are
+# white, black, alpha, alpha-transfer, selection, copy and channel.
+# 
+# (layer-add-mask-type white)
+
+# Sets the default 'invert mask' state for the 'Add Layer Mask' dialog. 
+# Possible values are yes and no.
+# 
+# (layer-add-mask-invert no)
+
+# Sets the default merge type for the 'Merge Visible Layers' dialog. 
+# Possible values are expand-as-necessary, clip-to-image,
+# clip-to-bottom-layer and flatten-image.
+# 
+# (layer-merge-type expand-as-necessary)
+
+# Sets the default 'Active group only' for the 'Merge Visible Layers' dialog.
+#  Possible values are yes and no.
+# 
+# (layer-merge-active-group-only yes)
+
+# Sets the default 'Discard invisible' for the 'Merge Visible Layers' dialog.
+#  Possible values are yes and no.
+# 
+# (layer-merge-discard-invisible no)
+
+# Sets the default channel name for the 'New Channel' dialog.  This is a
+# string value.
+# 
+# (channel-new-name "Channel")
+
+# Sets the default color and opacity for the 'New Channel' dialog.  The color
+# is specified in the form (color-rgba red green blue alpha) with channel
+# values as floats in the range of 0.0 to 1.0.
+# 
+# (channel-new-color (color-rgba 0 0 0 0.5))
+
+# Sets the default path name for the 'New Path' dialog.  This is a string
+# value.
+# 
+# (path-new-name "Path")
+
+# Sets the default folder path for the 'Export Path' dialog.  This is a
+# single filename.
+# 
+# 
+
+# Sets the default 'Export the active path' state for the 'Export Path'
+# dialog.  Possible values are yes and no.
+# 
+# (path-export-active-only yes)
+
+# Sets the default folder path for the 'Import Path' dialog.  This is a
+# single filename.
+# 
+# 
+
+# Sets the default 'Merge imported paths' state for the 'Import Path' dialog.
+#  Possible values are yes and no.
+# 
+# (path-import-merge no)
+
+# Sets the default 'Scale imported paths to fit size' state for the 'Import
+# Path' dialog.  Possible values are yes and no.
+# 
+# (path-import-scale no)
+
+# Sets the default feather radius for the 'Feather Selection' dialog.  This
+# is a float value.
+# 
+# (selection-feather-radius 5)
+
+# Sets the default 'Selected areas continue outside the image' setting for
+# the 'Feather Selection' dialog.  Possible values are yes and no.
+# 
+# (selection-feather-edge-lock yes)
+
+# Sets the default grow radius for the 'Grow Selection' dialog.  This is a
+# float value.
+# 
+# (selection-grow-radius 1)
+
+# Sets the default shrink radius for the 'Shrink Selection' dialog.  This is
+# a float value.
+# 
+# (selection-shrink-radius 1)
+
+# Sets the default 'Selected areas continue outside the image' setting for
+# the 'Shrink Selection' dialog.  Possible values are yes and no.
+# 
+# (selection-shrink-edge-lock no)
+
+# Sets the default border radius for the 'Border Selection' dialog.  This is
+# a float value.
+# 
+# (selection-border-radius 5)
+
+# Sets the default border style for the 'Border Selection' dialog.  Possible
+# values are hard, smooth and feathered.
+# 
+# (selection-border-style smooth)
+
+# Sets the default 'Selected areas continue outside the image' setting for
+# the 'Border Selection' dialog.  Possible values are yes and no.
+# 
+# (selection-border-edge-lock no)
+
+# The default fill options for the fill dialogs.  This is a parameter list.
+# 
+# (fill-options
+#     (style solid)
+#     (antialias yes)
+#     (feather no)
+#     (feather-radius 10))
+
+# The default stroke options for the stroke dialogs.  This is a parameter
+# list.
+# 
+# (stroke-options
+#     (style solid)
+#     (antialias yes)
+#     (feather no)
+#     (feather-radius 10)
+#     (method line)
+#     (width 6)
+#     (unit pixels)
+#     (cap-style butt)
+#     (join-style miter)
+#     (miter-limit 10)
+#     (dash-offset 0)
+#     (dash-info 0)
+#     (emulate-brush-dynamics no))
 
 # Where to search for fractals used by the Fractal Explorer plug-in.  This is
 # a colon-separated list of folders to search.

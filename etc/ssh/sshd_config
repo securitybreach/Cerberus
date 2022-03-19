@@ -10,9 +10,9 @@
 # possible, but leave them commented.  Uncommented options override the
 # default value.
 
-port 25036
-#AddressFamily any
-#ListenAddress 0.0.0.0
+Port 28935
+AddressFamily any
+ListenAddress 192.168.1.2
 #ListenAddress ::
 
 #HostKey /etc/ssh/ssh_host_rsa_key
@@ -99,7 +99,7 @@ PrintMotd no # pam does that
 #PidFile /run/sshd.pid
 #MaxStartups 10:30:100
 #PermitTunnel no
-#ChrootDirectory none
+#CrootDirectory none
 #VersionAddendum none
 
 # no default banner path

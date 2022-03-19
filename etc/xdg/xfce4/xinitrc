@@ -46,18 +46,9 @@ fi
 
 # set up XDG user directores.  see
 # http://freedesktop.org/wiki/Software/xdg-user-dirs
-if which xdg-user-dirs-update >/dev/null 2>&1; then
+if command -v xdg-user-dirs-update >/dev/null 2>&1; then
     xdg-user-dirs-update
 fi
-
-# Modify libglade and glade environment variables so that
-# it will find the files installed by Xfce
-GLADE_CATALOG_PATH="$GLADE_CATALOG_PATH:"
-GLADE_PIXMAP_PATH="$GLADE_PIXMAP_PATH:"
-GLADE_MODULE_PATH="$GLADE_MODULE_PATH:"
-export GLADE_CATALOG_PATH
-export GLADE_PIXMAP_PATH
-export GLADE_MODULE_PATH
 
 # For now, start with an empty list
 XRESOURCES=""
@@ -82,125 +73,41 @@ test -r "$BASEDIR/Xcursor.xrdb" && XRESOURCES="$XRESOURCES $BASEDIR/Xcursor.xrdb
 test -r "$HOME/.Xresources" && XRESOURCES="$XRESOURCES $HOME/.Xresources"
 
 # load all X resources (adds /dev/null to avoid an empty list that would hang the process)
-cat /dev/null $XRESOURCES | xrdb -nocpp -merge -
+cat /dev/null $XRESOURCES | xrdb -merge -
 
 # load local modmap
 test -r $HOME/.Xmodmap && xmodmap $HOME/.Xmodmap
 
+# if XAUTHLOCALHOSTNAME is not set in systemd user session, starting of xfce4-notifyd, DISPLAY etc. will fail
+if command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1; then # user session is running
+  dbus-update-activation-environment --systemd XAUTHLOCALHOSTNAME=$XAUTHLOCALHOSTNAME
+fi
+
 # source system xinitrc scripts
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
-    for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
-        [ -x "$f" ] && . "$f"
-    done
-    unset f
-fi
-
-# run xfce4-session if installed
-if which xfce4-session >/dev/null 2>&1; then
-
-  # check if we start xfce4-session with ck-launch-session. this is only
-  # required for starting from a console, not a login manager
-  if test "x$XFCE4_SESSION_WITH_CK" = "x1"; then
-    if which ck-launch-session >/dev/null 2>&1; then
-      ck-launch-session xfce4-session
-    else
-      echo
-      echo "You have tried to start Xfce with consolekit support, but"
-      echo "ck-launch-session is not installed."
-      echo "Aborted startup..."
-      echo
-
-      exit 1
-    fi
-  else
-    # start xfce4-session normally
-    xfce4-session
-  fi
-
-  exit 0
-fi
-
-##################
-# IMPORTANT NOTE #
-##################
-
-# Everything below here ONLY gets executed if you are NOT using xfce4-session
-# (Xfce's session manager).  If you are using the session manager, everything
-# below is handled by it, and the code below is not executed at all.  If you're
-# not sure if you're using the session manager, type 'ps -e|grep xfce4-session'
-# in a terminal while Xfce is running.
-
-##################
-
-# Use dbus-launch if installed.
-if test x"$DBUS_SESSION_BUS_ADDRESS" = x""; then
-  if which dbus-launch >/dev/null 2>&1; then
-    eval `dbus-launch --sh-syntax --exit-with-session`
-    # some older versions of dbus don't export the var properly
-    export DBUS_SESSION_BUS_ADDRESS
-  else
-    echo "Could not find dbus-launch; Xfce will not work properly" >&2
-    fi
-fi
-
-# this is only necessary when running w/o xfce4-session
-xsetroot -solid black -cursor_name watch
-
-# or use old-fashioned startup script otherwise
-
-xfsettingsd &
-xfwm4 --daemon
-
-# start up stuff in $XDG_CONFIG_HOME/autostart/
-if test -d "$XDG_CONFIG_HOME/autostart"; then
-  for i in ${XDG_CONFIG_HOME}/autostart/*.desktop; do
-    grep -q -E "^Hidden=true" "$i" && continue
-    if grep -q -E "^OnlyShowIn=" "$i"; then
-      # need to test twice, as lack of the line entirely means we still run it
-      grep -E "^OnlyShowIn=" "$i" | grep -q 'XFCE;' || continue
-    fi
-    grep -E "^NotShowIn=" "$i" | grep -q 'XFCE;' && continue
-
-    # check for TryExec
-    trycmd=`grep -E "^TryExec=" "$i" | cut -d'=' -f2`
-    if test "$trycmd"; then
-      which "$trycmd" >/dev/null 2>&1 || continue
-    fi
-
-    cmd=`grep -E "^Exec=" "$i" | cut -d'=' -f2`
-    if test "$cmd" && which "$cmd" >/dev/null 2>&1; then
-      $cmd &
-    fi
+  for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
+    [ -x "$f" ] && . "$f"
   done
+  unset f
 fi
 
-xfdesktop&
-orage &
+# check if we start xfce4-session with ck-launch-session. this is only
+# required for starting from a console, not a login manager
+if test "x$XFCE4_SESSION_WITH_CK" = "x1"; then
+  if command -v ck-launch-session >/dev/null 2>&1; then
+    exec ck-launch-session xfce4-session
+  else
+    echo
+    echo "You have tried to start Xfce with consolekit support, but"
+    echo "ck-launch-session is not installed."
+    echo "Aborted startup..."
+    echo
+    exit 1
+  fi
+else
+  # start xfce4-session normally
+  exec xfce4-session
+fi
 
-panel=`which xfce4-panel`
-case "x$panel" in
-	x|xno*)
-		;;
-	*)
-		$panel
-		ret=$?
-		while test $ret -ne 0; do
-			xmessage -center -file - -timeout 20 -title Error <<EOF
-A crash occured in the panel
-Please report this to the xfce4-dev@xfce.org list
-or on http://bugs.xfce.org
-Meanwhile the panel will be restarted
-EOF
-			cat >&2 <<EOF
-A crash occured in the panel
-Please report this to the xfce4-dev@xfce.org list
-or on http://bugs.xfce.org
-Meanwhile the panel will be restarted
-EOF
-			$panel
-			ret=$?
-		done
-		;;
-esac
-
-xsetroot -bg white -fg red  -solid black -cursor_name watch
+# if we got here, then exec failed
+exit 1

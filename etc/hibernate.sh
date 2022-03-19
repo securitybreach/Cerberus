@@ -1,0 +1,1 @@
+powerpanel/hibernate.sh
