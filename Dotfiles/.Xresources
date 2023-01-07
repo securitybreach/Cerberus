@@ -1,4 +1,4 @@
-urxvt*geometry:                52x20
+urxvt*geometry:                400x400
 urxvt*font:xft:source code pro:pixelsize=14:antialias=true
 urxvt*boldFont:xft:source code pro:pixelsize=14:antialias=true
 urxvt*depth: 32
